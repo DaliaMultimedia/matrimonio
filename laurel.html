@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Símbolo encontrado</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+
+background-image:url("img/textura.jpg");
+background-size:cover;
+background-attachment:fixed;
+
+font-family:'Cinzel', serif;
+}
+
+.container{
+max-width:400px;
+}
+
+.symbol{
+width:180px;
+margin-bottom:20px;
+}
+
+h1{
+font-size:1.8rem;
+margin-bottom:15px;
+}
+
+p{
+font-size:1rem;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="img/laurel.png" class="symbol" alt="Laureles">
+
+<h1
+data-es="Has encontrado la corona de laurel"
+data-it="Hai trovato la Corona d'Alloro">
+
+Has encontrado la corona de laurel
+
+</h1>
+
+<p
+data-es="La corona de laurel era el símbolo de honor y victoria en la antigua Roma."
+data-it="La corona d'alloro era il simbolo di onore e vittoria nell'antica Roma">
+
+La corona de laurel era el símbolo de honor y victoria en la antigua Roma.
+
+</p>
+
+<p
+data-es="Continúa tu búsqueda en el desafío del Imperio."
+data-it="Continua la tua ricerca nella sfida dell'Impero.">
+
+Continúa tu búsqueda en el desafío del Imperio.
+
+</p>
+
+</div>
+
+<script>
+
+/* guardar progreso */
+localStorage.setItem("laurel", true)
+
+/* detectar idioma */
+const lang = localStorage.getItem("lang") || "es"
+
+document.querySelectorAll("[data-es]").forEach(el=>{
+el.textContent = el.getAttribute("data-" + lang)
+})
+
+/* volver al inicio */
+setTimeout(function(){
+window.location.href = "index.html"
+},4000)
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Símbolo encontrado</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+
+background-image:url("img/textura.jpg");
+background-size:cover;
+background-attachment:fixed;
+
+font-family:'Cinzel', serif;
+}
+
+.container{
+max-width:400px;
+}
+
+.symbol{
+width:180px;
+margin-bottom:20px;
+}
+
+h1{
+font-size:1.8rem;
+margin-bottom:15px;
+}
+
+p{
+font-size:1rem;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="img/uva.png" class="symbol" alt="Uvas">
+
+<h1
+data-es="Has encontrado las uvas del Imperio"
+data-it="Hai trovato l'Uva dell'Impero">
+
+Has encontrado las uvas del Imperio
+
+</h1>
+
+<p
+data-es="El vino celebraba las victorias de Roma y unía a las personas en los banquetes. Sigue buscando los demás símbolos del Imperio para completar el desafío."
+data-it="Il vino celebrava le vittorie di Roma e univa le persone nei banchetti.">
+
+El vino celebraba las victorias de Roma y unía a las personas en los banquetes.  
+
+</p>
+
+<p
+data-es="Volviendo al desafío..."
+data-it="Ritorno alla sfida...">
+
+Volviendo al desafío...
+
+</p>
+
+</div>
+
+<script>
+
+/* guardar progreso */
+localStorage.setItem("uvas", true)
+
+/* detectar idioma */
+const lang = localStorage.getItem("lang") || "es"
+
+document.querySelectorAll("[data-es]").forEach(el=>{
+el.textContent = el.getAttribute("data-" + lang)
+})
+
+/* volver al inicio */
+setTimeout(function(){
+window.location.href = "index.html"
+},4000)
+
+</script>
+
+</body>
+
+</html>

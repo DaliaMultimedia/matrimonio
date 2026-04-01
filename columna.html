@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Símbolo encontrado</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+
+background-image:url("img/textura.jpg");
+background-size:cover;
+background-attachment:fixed;
+
+font-family:'Cinzel', serif;
+}
+
+.container{
+max-width:400px;
+}
+
+.symbol{
+width:180px;
+margin-bottom:20px;
+}
+
+h1{
+font-size:1.8rem;
+margin-bottom:15px;
+}
+
+p{
+font-size:1rem;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="img/columna.png" class="symbol" alt="Columna">
+
+<h1
+data-es="Has encontrado la Columna del Imperio"
+data-it="Hai trovato la Colonna dell'Impero">
+
+Has encontrado la Columna del Imperio
+
+</h1>
+
+<p
+data-es="Las columnas sostenían templos, foros y palacios en la antigua Roma."
+data-it="Le colonne sostenevano templi, fori e palazzi nell'antica Roma.">
+
+Las columnas sostenían templos, foros y palacios en la antigua Roma.
+
+</p>
+
+<p
+data-es="Continúa el desafío..."
+data-it="Continua la sfida...">
+
+Continúa el desafío...
+
+</p>
+
+</div>
+
+<script>
+
+/* guardar progreso */
+localStorage.setItem("columna", true)
+
+/* detectar idioma */
+const lang = localStorage.getItem("lang") || "es"
+
+document.querySelectorAll("[data-es]").forEach(el=>{
+el.textContent = el.getAttribute("data-" + lang)
+})
+
+/* volver a la página principal */
+setTimeout(function(){
+window.location.href = "index.html"
+},4000)
+
+</script>
+
+</body>
+
+</html>

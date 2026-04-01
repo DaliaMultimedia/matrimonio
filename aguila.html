@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Símbolo encontrado</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+
+background-image:url("img/textura.jpg");
+background-size:cover;
+background-attachment:fixed;
+
+font-family:'Cinzel', serif;
+}
+
+.container{
+max-width:400px;
+}
+
+.symbol{
+width:180px;
+margin-bottom:20px;
+}
+
+h1{
+font-size:1.8rem;
+margin-bottom:15px;
+}
+
+p{
+font-size:1rem;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="img/aguila.png" class="symbol" alt="Águila Imperial">
+
+<h1
+data-es="Has encontrado el Águila Imperial"
+data-it="Hai trovato l'Aquila Imperiale">
+
+Has encontrado el Águila Imperial
+
+</h1>
+
+<p
+data-es="El águila guiaba a las legiones romanas y representaba el poder del Imperio."
+data-it="L'aquila guidava le legioni romane e rappresentava il potere dell'Impero.">
+
+El águila guiaba a las legiones romanas y representaba el poder del Imperio.
+
+</p>
+
+<p
+data-es="Sigue con la búsqueda."
+data-it="Continua la ricerca.">
+
+Sigue con la búsqueda.
+
+</p>
+
+</div>
+
+<script>
+
+/* guardar progreso */
+localStorage.setItem("aguila", true)
+
+/* detectar idioma */
+const lang = localStorage.getItem("lang") || "es"
+
+document.querySelectorAll("[data-es]").forEach(el=>{
+el.textContent = el.getAttribute("data-" + lang)
+})
+
+/* volver al inicio */
+setTimeout(function(){
+window.location.href = "index.html"
+},4000)
+
+</script>
+
+</body>
+
+</html>
