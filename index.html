@@ -1526,8 +1526,8 @@ Cuenta Argentina
 
 </h3>
 
-<p>CBU: 0720099188000004681140</p>
-<p>Alias: dalia.marco</p>
+<p>CBU: 0110714430071402418129</p>
+<p>Alias: dalia.diana</p>
 <p>Dalia Pastene</p>
 
 </div>
@@ -1735,6 +1735,15 @@ document.getElementById(simbolo)?.classList.add("found")
 
 })
 const simbolos = ["columna","laurel","aguila","espada","uvas"]
+const parametros = new URLSearchParams(window.location.search)
+const simboloEscaneado = parametros.get("simbolo")
+
+if (simbolos.includes(simboloEscaneado)) {
+  localStorage.setItem(simboloEscaneado, "true")
+
+  // Deja la URL limpia luego de registrar el hallazgo.
+  window.history.replaceState({}, document.title, "/")
+}
 
 function actualizarProgreso(){
 
